@@ -1,11 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Min hemsida</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Önskelista</title>
+  <style>
+    /* Grund */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #7dd3fc;
+      --muted: #9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, #071024 0%, #0f1724 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Centrerad layout */
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      box-sizing:border-box;
+    }
+    .container{
+      width:100%;
+      max-width:920px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+      align-items:start;
+      justify-items:center;
+    }
+
+    /* Kort-styling */
+    .card{
+      width:100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+      transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+    }
+    .card:hover{
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(2,6,23,0.75);
+    }
+
+    .thumb{
+      width:100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display:block;
+      background: linear-gradient(90deg, rgba(125,211,252,0.06), rgba(99,102,241,0.04));
+    }
+
+    .content{
+      padding:14px;
+      display:flex;
+      gap:10px;
+      flex-direction:column;
+    }
+
+    .title{
+      font-size:16px;
+      font-weight:600;
+      line-height:1.2;
+      margin:0;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    .actions{
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content:flex-start;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:10px;
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(125,211,252,0.18);
+      font-weight:600;
+      font-size:14px;
+      transition: background .12s, color .12s, transform .12s;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn.secondary{
+      color:var(--muted);
+      border-color: rgba(255,255,255,0.04);
+    }
+
+    /* Klickbart kort som länkar hela kortet */
+    .card a.full-link{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      text-indent:-9999px;
+      overflow:hidden;
+    }
+    .card-inner{
+      position:relative;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    /* Footer text */
+    .footer{
+      text-align:center;
+      margin:18px 0 6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsivt: gör korten lite större på bredare skärmar */
+    @media (min-width:900px){
+      .container{ gap:22px; }
+      .title{ font-size:17px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hi.</h1>
-  <p>This is a paragraph.</p>
+  <div class="wrap">
+    <main class="container">
+
+      <!--
+        DUBBLA EXEMPELKORT. 
+        Kopiera / klistra om du vill lägga till fler.
+        Ersätt IMAGE_URL, ITEM_TITLE och ITEM_LINK med riktiga värden.
+      -->
+
+      <article class="card">
+        <div class="card-inner">
+          <img class="thumb" src="https://images.unsplash.com/photo-1602524818228-5ad9a2b5b6a8?q=80&w=1600&auto=format&fit=crop" alt="Exempelprodukt">
+          <div class="content">
+            <h3 class="title">Exempelprodukt 1</h3>
+            <div class="meta">Kort beskrivning eller notis — t.ex. "Storlek: M, färg: svart".</div>
+            <div class="actions">
+              <a class="btn" href="https://example.com" target="_blank" rel="noopener">Gå till produkten</a>
+              <a class="btn secondary" href="mailto:dinmail@example.com?subject=Jag vill köpa denna">Spara / kontakta</a>
+            </div>
+          </div>
+        </div>
+        <!-- Om du vill göra hela kortet klickbart, kopiera knappen nedan och fyll i href -->
+        <!-- <a class="full-link" href="https://example.com" target="_blank" rel="noopener">Till produkten</a> -->
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <img class="thumb" src="https://images.unsplash.com/photo-1526178615291-2b6b3a2e6f3b?q=80&w=1600&auto=format&fit=crop" alt="Exempelprodukt 2">
+          <div class="content">
+            <h3 class="title">Exempelprodukt 2</h3>
+            <div class="meta">Prisidé, önskad mängd eller annan info.</div>
+            <div class="actions">
+              <a class="btn" href="https://example.com/produkt2" target="_blank" rel="noopener">Se produkt</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Lägg till fler kort här genom att duplicera <article class="card"> ... -->
+
+    </main>
+  </div>
+
+  <div class="footer">Tips: byt bilderna mot egna bildlänkar och ändra länkarna i knapparna. Spara filen som <code>index.html</code>.</div>
 </body>
 </html>
