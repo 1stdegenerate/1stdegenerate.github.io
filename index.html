@@ -117,7 +117,6 @@
       border-color: rgba(255,255,255,0.04);
     }
 
-    /* Klickbart kort som länkar hela kortet */
     .card a.full-link{
       position:absolute;
       inset:0;
@@ -132,16 +131,6 @@
       flex-direction:column;
       flex:1;
     }
-
-    /* Footer text */
-    .footer{
-      text-align:center;
-      margin:18px 0 6px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* Responsivt: gör korten lite större på bredare skärmar */
     @media (min-width:900px){
       .container{ gap:22px; }
       .title{ font-size:17px; }
@@ -151,47 +140,23 @@
 <body>
   <div class="wrap">
     <main class="container">
-
-      <!--
-        DUBBLA EXEMPELKORT. 
-        Kopiera / klistra om du vill lägga till fler.
-        Ersätt IMAGE_URL, ITEM_TITLE och ITEM_LINK med riktiga värden.
-      -->
-
       <article class="card">
         <div class="card-inner">
           <img class="thumb" src="https://images.unsplash.com/photo-1602524818228-5ad9a2b5b6a8?q=80&w=1600&auto=format&fit=crop" alt="Exempelprodukt">
           <div class="content">
             <h3 class="title">Exempelprodukt 1</h3>
-            <div class="meta">Kort beskrivning eller notis — t.ex. "Storlek: M, färg: svart".</div>
-            <div class="actions">
-              <a class="btn" href="https://example.com" target="_blank" rel="noopener">Gå till produkten</a>
-              <a class="btn secondary" href="mailto:dinmail@example.com?subject=Jag vill köpa denna">Spara / kontakta</a>
-            </div>
-          </div>
-        </div>
-        <!-- Om du vill göra hela kortet klickbart, kopiera knappen nedan och fyll i href -->
-        <!-- <a class="full-link" href="https://example.com" target="_blank" rel="noopener">Till produkten</a> -->
-      </article>
-
-      <article class="card">
-        <div class="card-inner">
-          <img class="thumb" src="https://images.unsplash.com/photo-1526178615291-2b6b3a2e6f3b?q=80&w=1600&auto=format&fit=crop" alt="Exempelprodukt 2">
-          <div class="content">
-            <h3 class="title">Exempelprodukt 2</h3>
             <div class="meta">Prisidé, önskad mängd eller annan info.</div>
             <div class="actions">
-              <a class="btn" href="https://example.com/produkt2" target="_blank" rel="noopener">Se produkt</a>
+              <a class="btn" href="https://www.inet.se/produkt/2226915/dell-34-alienware-aw3425dw-oled-wqhd-1800r-240-hz" target="_blank" rel="noopener">Se produkt</a>
             </div>
           </div>
         </div>
+  
       </article>
 
-      <!-- Lägg till fler kort här genom att duplicera <article class="card"> ... -->
+
 
     </main>
   </div>
-
-  <div class="footer">Tips: byt bilderna mot egna bildlänkar och ändra länkarna i knapparna. Spara filen som <code>index.html</code>.</div>
 </body>
 </html>
